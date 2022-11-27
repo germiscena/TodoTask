@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3,
+h1 {
+  margin: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {
+  margin: 0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.header {
+  height: 60px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.reloadTasks {
+  width: 150px;
+  height: 40px;
+}
+.list {
+  width: 1300px;
+}
+.singleTask {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  padding: 15px 5px;
+  margin-bottom: 5px;
+}
+
+.task {
+  width: 15%;
+  text-align: center;
+}
+.taskInfo {
+  width: 600px;
+  text-align: center;
+}
+.taskDate {
+  width: 9%;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.taskAttachments {
+  width: 270px;
+  margin-right: 10px;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.loading {
+  width: 100%;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.inputTask {
+  margin-left: 50px;
+  margin-right: 150px;
+}
+
+.inputDate {
+  width: 100px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.sendTask {
+  margin-left: 20px;
+}
+
+.expired {
+  background-color: gray;
+  color: rgb(70, 64, 64);
+}
+
+.completed {
+  background-color: green;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.taskEdit {
+  margin-right: 10px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.taskDelete {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.editInfo {
+  width: 700px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

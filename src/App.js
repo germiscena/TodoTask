@@ -15,6 +15,7 @@ function App() {
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
+  //получение всех заданий
   async function getTasks() {
     const dbRef = ref(getDatabase(app));
     await get(child(dbRef, 'tasks/')).then((obj) => {
@@ -22,17 +23,18 @@ function App() {
       setLoading(false);
     });
   }
-
+  //удаление задания, task - название задания
   function deleteTask(task) {
     remove(ref(db, 'tasks/' + task)).then(getTasks());
   }
-
+  //установка статуса 'активное' или 'завершенное' задание, task - название задания, status - текущий статус задания
   function completeStatus(task, status) {
     update(ref(db, 'tasks/' + task + '/'), {
       status: status == 'completed' ? 'active' : 'completed',
     }).then(getTasks());
   }
 
+  //создание нового задания, task - задание, info - информация , date - дата , attachments - вложения
   function writeUserData(task, info, date, attachments) {
     set(ref(db, 'tasks/' + task), {
       date: date,
@@ -43,6 +45,7 @@ function App() {
     });
   }
 
+  //установка статуса 'время истекло', status - статус задания , task - задание
   function expiredStatus(status, task) {
     update(ref(db, 'tasks/' + task + '/'), {
       status: status,
@@ -97,11 +100,3 @@ function App() {
 }
 
 export default App;
-{
-  /* <div key={item.task} className='singleTask'>
-                //   <h3 className='task'>{item.task}</h3>
-                //   <p className='taskInfo'>{item.info}</p>
-                //   <p className='taskDate'>{item.date}</p>
-                //   <div className='taskAttachments'>{item.attachments}</div>
-                // </div> */
-}

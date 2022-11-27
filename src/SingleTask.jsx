@@ -13,14 +13,6 @@ const SingleTask = (item) => {
       ? 'singleTask completed'
       : 'singleTask';
 
-  // let expiredState =
-  //   thisDay.split('-')[0] > taskDay[0]
-  //     ? 'expired'
-  //     : thisDay.split('-')[1] > taskDay[1]
-  //     ? 'expired'
-  //     : thisDay.split('-')[2] > taskDay[2]
-  //     ? 'expired'
-  //     : item.status;
   let expiredState = item.status;
   item.status !== 'completed'
     ? new Date(taskDay) >= new Date(thisDay)
@@ -36,7 +28,7 @@ const SingleTask = (item) => {
   const editInfo = React.useRef('d');
   const editDate = React.useRef('c');
   const editAttachments = React.useRef('h');
-
+  //редактирование задания, task - задание , name - название , info - информация, date - дата, attachments - вложения
   function updateTask(task, name, info, date, attachments) {
     item.deleteTask(task);
     item.writeUserData(name, info, date, attachments);

@@ -8,6 +8,7 @@ const CreateTask = ({ getTasks }) => {
   };
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
+  //создание нового задания, task - задание, info - информация , date - дата , attachments - вложения
   function writeUserData(task, info, date, attachments) {
     set(ref(database, 'tasks/' + task), {
       date: date,
@@ -21,7 +22,7 @@ const CreateTask = ({ getTasks }) => {
   const refInfo = React.useRef('');
   const refDate = React.useRef('');
   const refProp = React.useRef('');
-
+  //создание задания с введенными данными
   function send() {
     const inputTask = refTask.current;
     const inputInfo = refInfo.current;
@@ -31,10 +32,6 @@ const CreateTask = ({ getTasks }) => {
       writeUserData(inputTask.value, inputInfo.value, inputDate.value, inputProp.value);
       setTimeout(getTasks, 1000);
     }
-
-    // writeUserData('Спортзал', 'Сходить в спортзал', '22.11.2022', '0');
-    // writeUserData('Магазин', 'Сходить в магазин', '22.11.2022', '0');
-    // writeUserData('shop', 'Сходить в магазин', '22.11.2022', '0');
   }
   return (
     <div className='singleTask'>
